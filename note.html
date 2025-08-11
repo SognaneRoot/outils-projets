@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Notes par Catégorie</title>
+  <link rel="stylesheet" href="note.css">
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <h2>Catégories</h2>
+      <ul id="categoryList"></ul>
+      <button id="addNoteBtn">+ Ajouter une note</button>
+      <a href="index.html" class="back-btn">← Retour</a>
+    </aside>
+
+    <main class="note-area">
+      <h2 id="currentTitle">Aucune note sélectionnée</h2>
+      <div id="editableNote" contenteditable="true" class="editable" style="display: none;"></div>
+    </main>
+  </div>
+
+  <script src="note.js"></script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mes Outils</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>🛠️ Mes Outils</h1>
+  </header>
+
+<main class="container">
+<aside class="sidebar">
+    <input type="text" id="search" placeholder="Rechercher un outil..." />
+    <ul id="categoryList"></ul>
+    <li><button onclick="window.location.href='note.html'">📝 Note</button></li>
+</aside>
+
+<section class="main-content">
+    <section id="tool-form" class="side-block">
+    <h2>➕ Ajouter un outil</h2>
+    <form id="addToolForm">
+        <input type="text" id="name" placeholder="Nom" required />
+        <input type="text" id="category" placeholder="Catégorie (dev, réseau...)" required />
+        <input type="url" id="link" placeholder="Lien" required />
+        <input type="text" id="usefulness" placeholder="Utilité" required />
+        <textarea id="usage" placeholder="Fonctionnement..." required></textarea>
+        <button type="submit">Ajouter</button>
+    </form>
+    </section>
+
+    <section id="tools-list" class="side-block">
+    <h2>📋 Détails des outils</h2>
+    <div id="toolsContainer"></div>
+    </section>
+</section>
+</main>
+
+
+  <script src="script.js"></script>
+</body>
+</html>

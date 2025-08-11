@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mes Projets</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>📁 Mes Projets</h1>
+    <a href="index.html" style="color:#dce3eb; text-decoration:none; font-weight:bold; margin-left:-1100px;">⬅️ Retour</a>
+  </header>
+
+  <main class="container">
+    <section class="main-content" style="width: 100%; padding: 20px;">
+      <section id="project-form" style="margin-bottom: 20px;">
+        <h2>➕ Ajouter un projet</h2>
+        <form id="addProjectForm">
+          <input type="text" id="projectName" placeholder="Nom du projet" required />
+           <input type="file" id="projectFile" accept=".pdf,.ppt,.pptx" />
+          <textarea id="projectNote" placeholder="Note (facultatif)"></textarea>
+          <button type="submit">Ajouter</button>
+        </form>
+      </section>
+
+      <section id="projects-list">
+        <h2>📄 Projets enregistrés</h2>
+        <div id="projectsContainer"></div>
+      </section>
+    </section>
+  </main>
+
+  <script>
+    const form = document.getElementById("addProjectForm");
+    const container = document.getElementById("projectsContainer");
+
+    let projects = JSON.parse(localStorage.getItem("projects")) || [];
+
+    function renderProjects() {
+      container.innerHTML = "";
+      projects.forEach((p, i) => {
+        const div = document.createElement("div");
+        div.className = "tool-item";
+        div.innerHTML = `
+          <h4>${p.name}</h4>
+          ${p.link ? `<p><a href="${p.link}" target="_blank">📎 Voir fichier</a></p>` : ""}
+          ${p.note ? `<p><strong>Note:</strong> ${p.note}</p>` : ""}
+          <button onclick="deleteProject(${i})">Supprimer</button>
+        `;
+        container.appendChild(div);
+      });
+    }
+
+    function deleteProject(index) {
+      if (confirm("Confirmer la suppression ?")) {
+        projects.splice(index, 1);
+        localStorage.setItem("projects", JSON.stringify(projects));
+        renderProjects();
+      }
+    }
+
+    form.addEventListener("submit", e => {
+      e.preventDefault();
+      const newProj = {
+        name: document.getElementById("projectName").value.trim(),
+        link: document.getElementById("projectFile").value.trim(),
+        note: document.getElementById("projectNote").value.trim(),
+      };
+      projects.push(newProj);
+      localStorage.setItem("projects", JSON.stringify(projects));
+      form.reset();
+      renderProjects();
+    });
+
+    renderProjects();
+  </script>
+</body>
+</html>

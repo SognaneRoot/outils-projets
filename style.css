@@ -1,0 +1,111 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background-color: #f7f9fc;
+  color: #333;
+}
+
+header {
+  background-color: #007BFF;
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+
+.container {
+  display: flex;
+}
+
+.sidebar {
+  width: 200px;
+  padding: 20px;
+  background-color: #e9f1ff;
+  border-right: 1px solid #ccc;
+}
+
+.sidebar input {
+  width: 100%;
+  padding: 6px;
+  margin-bottom: 10px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin-bottom: 10px;
+  cursor: pointer;
+  color: #007BFF;
+}
+
+.main-content {
+  display: flex;
+  gap: 20px;
+}
+
+.side-block {
+  flex: 1;
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #ccc;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+
+#tool-form, #tools-list {
+  margin-bottom: 20px;
+}
+
+form input, form textarea, form button {
+  width: 100%;
+  margin: 5px 0;
+  padding: 6px;
+}
+
+.tool-item {
+  border: 1px solid #ccc;
+  margin: 5px 0;
+  padding: 10px;
+  background: #fff;
+}
+
+.tool-title {
+  font-weight: bold;
+  color: #007BFF;
+  cursor: pointer;
+}
+
+.tool-details {
+  display: none;
+  margin-top: 5px;
+}
+
+.tool-actions {
+  margin-top: 10px;
+}
+
+.tool-actions button {
+  margin-right: 5px;
+}
+#categoryList li {
+  padding: 8px 12px;
+  border-radius: 4px;
+  margin-bottom: 5px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+#categoryList li:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+.active-category {
+  background-color: #007bff;
+  color: white;
+}
+
+
